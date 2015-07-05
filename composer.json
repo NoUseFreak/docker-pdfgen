@@ -1,0 +1,25 @@
+{
+    "name": "nousefreak/pdfgen",
+    "description": "An API for generating PDF\'s using wkhtmltopdf",
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.3.3",
+        "silex/silex": "~1.0",
+        "symfony/config": "~2.7",
+        "symfony/monolog-bridge": "~2.7",
+        "symfony/process": "~2.7",
+        "knplabs/knp-snappy": "^0.4.0",
+        "seld/jsonlint": "^1.3",
+        "symfony/property-access": "^2.7",
+        "pear/net_dns2": "^1.4"
+    },
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.1.x-dev"
+        }
+    }
+}
