@@ -1,6 +1,6 @@
 {
     "name": "nousefreak/pdfgen",
-    "description": "An API for generating PDF\'s using wkhtmltopdf",
+    "description": "An API for generating PDF's using wkhtmltopdf",
     "license": "MIT",
     "type": "project",
     "require": {
