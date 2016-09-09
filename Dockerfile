@@ -15,7 +15,7 @@ RUN apt-get update \
     && wget -O wkhtmltox.deb http://download.gna.org/wkhtmltopdf/0.12/0.12.2.1/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb \
     && dpkg -i wkhtmltox.deb
 
-RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/web|' /etc/apache2/apache2.conf \
+RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/web|' /etc/apache2/sites-available/000-default.conf \
     && echo "FallbackResource /index.php" >> /etc/apache2/apache2.conf
 
 COPY . /var/www/html
