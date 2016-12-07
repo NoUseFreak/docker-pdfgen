@@ -4,19 +4,17 @@ use Knp\Snappy\Pdf;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Seld\JsonLint\JsonParser;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 
 //Request::setTrustedProxies(array('127.0.0.1'));
 
 $app->post('/', function (Request $request) use ($app) {
-    $parser = new JsonParser();
     $accessor = PropertyAccess::createPropertyAccessor();
 
     $snappy = new Pdf();
     $snappy->setBinary($app['wkhtmltopdf.binary']);
 
-    $parameters = $parser->parse($request->getContent());
+    $parameters = json_decode($request->getContent());
     if ($accessor->isReadable($parameters, 'options')) {
         foreach ((array) $accessor->getValue($parameters, 'options') as $name => $value) {
             $snappy->setOption($name, $value);
