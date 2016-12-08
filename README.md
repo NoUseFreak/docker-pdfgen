@@ -37,3 +37,13 @@ $ curl \
     -d '{"source": {"html": "<html><head><title>Hello World!</title></head><body><h1>Hello world!</h1></body></html>"},"options": {"no-background": true}}' \
     http://192.168.99.100:80/ > example_html.pdf
 ```
+
+## Generate PDF from provided base64 encoded HTML
+```bash
+$ curl \
+    -H "Accept: application/json" \
+    -H "Content-type: application/json" \
+    -X POST \
+    -d '{"source": {"base64": "PGh0bWw+PGhlYWQ+PHRpdGxlPkhlbGxvIFdvcmxkITwvdGl0bGU+PC9oZWFkPjxib2R5PjxoMT5IZWxsbyB3b3JsZCE8L2gxPjwvYm9keT48L2h0bWw+"},"options": {"no-background": true}}' \
+    http://192.168.99.100:80/ > example_html.pdf
+```
