@@ -31,6 +31,8 @@ $app->post('/', function (Request $request) use ($app) {
         $snappy->generate($accessor->getValue($parameters, 'source.url'), $app['tmpFile'], [], true);
     } elseif ($accessor->isReadable($parameters, 'source.html')) {
         $snappy->generateFromHtml($accessor->getValue($parameters, 'source.html'), $app['tmpFile'], [], true);
+    } elseif ($accessor->isReadable($parameters, 'source.base64')) {
+        $snappy->generateFromHtml(base64_decode($accessor->getValue($parameters, 'source.base64')), $app['tmpFile'], [], true);
     }
 
     return new BinaryFileResponse($app['tmpFile']);
